@@ -11,7 +11,22 @@ body{
     height: 100%;
     font-family: 'Noto';
 }
+.app {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
 nav{
+    position: fixed;
+    width: 100%;
     display: flex;
     align-items: center;
     height: 3rem;
@@ -26,23 +41,48 @@ nav .toggleMenu{
     font-weight: 600;
 }
 
+nav .refresh{
+    margin-right: 1rem;
+    background: none;
+    border: none;
+    outline: none;
+}
+.nav .refresh {
+    transition: transform 0.3s ease;
+}
+
+.nav .refresh .rotating {
+    animation: 0.3s rotating ease;
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    
+}
+
 nav select {
     appearance: none;
     outline: none;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     margin-inline: auto;
     font-size: 1.2rem;
     font-weight: 600;
+    width: 50%;
+    text-align: center;
 }
 
 .side_menu{
     height: 100%;
     width: 60%;
-    position: absolute;
-    background-color: #fff;
-    transform: translateX(-250px);
+    top: 3rem;
+    position: fixed;
+    transform: translateX(-100%);
     transition: 0.3s;
     z-index: 999;
 }
@@ -54,13 +94,29 @@ nav select {
     margin-bottom: 3rem;
 }
 
+
 .side_menu div{
-    margin: 1rem;
-    font-size: 1.2rem;
+    margin: 0.5rem;
+    padding: 3px 10px;
+    border-radius: 5px;
 }
 .side_menu div:hover{
-    color: rgb(182, 182, 182);
+    background-color: #818290;
 }
+
+.check{
+    float: right;
+    margin-top: 5px;
+}
+
+.side_menu a{
+    text-decoration: none;
+    color: gray;
+}
+.side_menu a:hover{
+    color: rgb(164, 5, 5);
+}
+
 
 .weather_today{
     display: flex;
@@ -72,9 +128,10 @@ nav select {
 .weather_today .first_info{
     background-color: #e8e8e85d;
     width: 90%;
-    margin-top: 3rem;
+    margin-top: 6rem;
     padding: 1rem;
     border-radius: 8px;
+    box-shadow: rgb(221, 221, 221) 0px 2px 4px;
 }
 .weather_today .first_info h4{
     margin-block: 0.8rem;
@@ -89,7 +146,7 @@ nav select {
     align-items: center;
     margin-block: 1rem;
 }
-.icon_w {
+.weather_today .first_info .top svg {
     height: 5rem;
 }
 
@@ -99,6 +156,7 @@ nav select {
     margin-block: 1rem;
     padding: 1rem;
     border-radius: 8px;
+    box-shadow: rgb(221, 221, 221) 0px 2px 4px;
 }
 
 .weather_today .second_info h3{
@@ -118,7 +176,7 @@ nav select {
     width: 100%;
     top: 0;
     position: absolute;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #cccccc6a;
@@ -126,13 +184,14 @@ nav select {
 }
 
 .circle {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border: 8px solid gray;
     border-right: 8px solid rgb(0, 208, 255);
     border-radius: 50%;
     animation: spin 0.3s linear infinite;
 }
+
 
 
 @keyframes spin {
@@ -143,4 +202,32 @@ nav select {
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+.quiq_notif {
+    position: fixed;
+    top: 15%;
+    right: 0;
+    background-color: white;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: rgb(221, 221, 221) 0px 2px 15px;
+    animation: 0.3s animate ease-out;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: translate(200px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.quiq_notif  p{
+    margin: 0 ;
+    font-size: 0.9rem;
 }
