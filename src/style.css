@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'Noto';
+    src: url(../public/font/NotoSans-VariableFont_wdth\,wght.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    font-family: 'Noto';
+}
+nav{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    box-shadow: 0 2px 4px #ccc;
+}
+nav .toggleMenu{
+    background: none;
+    outline: none;
+    border: none;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+nav select {
+    appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-inline: auto;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.side_menu{
+    height: 100%;
+    width: 60%;
+    position: absolute;
+    background-color: #fff;
+    transform: translateX(-250px);
+    transition: 0.3s;
+    z-index: 999;
+}
+.open{
+    transform: translateX(0);
+}
+.side_menu h2{
+    margin: 1rem;
+    margin-bottom: 3rem;
+}
+
+.side_menu div{
+    margin: 1rem;
+    font-size: 1.2rem;
+}
+.side_menu div:hover{
+    color: rgb(182, 182, 182);
+}
+
+.weather_today{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.weather_today .first_info{
+    background-color: #e8e8e85d;
+    width: 90%;
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.weather_today .first_info h4{
+    margin-block: 0.8rem;
+    text-align: center;
+}
+.weather_today .first_info .deg_status{
+    text-align: center;
+}
+.weather_today .first_info .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 1rem;
+}
+.icon_w {
+    height: 5rem;
+}
+
+.weather_today .second_info{
+    background-color: #e8e8e85d;
+    width: 90%;
+    margin-block: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.weather_today .second_info h3{
+    margin-block: 0.8rem;
+    text-align: center;
+}
+.weather_today .second_info div{
+    margin-block: 1rem;
+}
+.weather_today .second_info div span{
+    float: right;
+}
+
+
+.loading {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #cccccc6a;
+    z-index: 9999;
+}
+
+.circle {
+    height: 100px;
+    width: 100px;
+    border: 8px solid gray;
+    border-right: 8px solid rgb(0, 208, 255);
+    border-radius: 50%;
+    animation: spin 0.3s linear infinite;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
